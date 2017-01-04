@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Paragliding</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+<script type="text/javascript">
+function currentYPosition() {
+    // Firefox, Chrome, Opera, Safari
+    if (self.pageYOffset) return self.pageYOffset;
+    // Internet Explorer 6 - standards mode
+    if (document.documentElement && document.documentElement.scrollTop)
+        return document.documentElement.scrollTop;
+    // Internet Explorer 6, 7 and 8
+    if (document.body.scrollTop) return document.body.scrollTop;
+    return 0;
+}
+
+function elmYPosition(eID) {
+    var elm = document.getElementById(eID);
+    var y = elm.offsetTop;
+    var node = elm;
+    while (node.offsetParent && node.offsetParent != document.body) {
+        node = node.offsetParent;
+        y += node.offsetTop;
+    } return y;
+}
+
+function smoothScroll(eID) {
+    var startY = currentYPosition();
+    var stopY = elmYPosition(eID);
+    var distance = stopY > startY ? stopY - startY : startY - stopY;
+    if (distance < 100) {
+        scrollTo(0, stopY); return;
+    }
+    var speed = Math.round(distance / 100);
+    if (speed >= 20) speed = 20;
+    var step = Math.round(distance / 25);
+    var leapY = stopY > startY ? startY + step : startY - step;
+    var timer = 0;
+    if (stopY > startY) {
+        for ( var i=startY; i<stopY; i+=step ) {
+            setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+            leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+        } return;
+    }
+    for ( var i=startY; i>stopY; i-=step ) {
+        setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+        leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+    }
+}
+
+//CONTACT FORM JS
+
+
+
+</script>
+
+
+</head>
+<body>
+
+<!--HEADER-->
+<header>
+  <div class="container">
+    
+    <div class="row">
+      <div class="twelve columns">
+        <nav>
+          <ul>
+            <li><a class="a2" onclick="smoothScroll('expertise');return false" href="#expertise">Expertise</a></li>
+            <li><a class="a2" onclick="smoothScroll('who_am_i');return false" href="#who_am_i">Who Am I</a></li>
+            <li><a class="a2" onclick="smoothScroll('experience');return false" href="#experience">Experience</a></li>
+            <li><a class="a2" onclick="smoothScroll('contactme');return false" href="#contactme">Contact</a></li>
+          </ul>
+        </nav>  
+      </div> 
+    </div>
+
+    <div class="row">    
+      <div class="twelve columns">
+        <h1>- The World is Outside -</h1>
+        <h4 id="fly">Fly your passion.</h4>
+        <a onclick="smoothScroll('contactme');return false" href="#contactme" class="btn">Hire me</a> 
+      </div>
+    </div>
+    
+    <section class="services">
+      <div class="row">
+        <div class="twelve columns">
+          <h3 id="expertise">My areas of expertise</h3>
+        </div>
+      </div>
+      <div class="row1">
+        <div class="flex1">
+          <a class="a1">
+            <h4>Materials Science</h4>
+            <!-- <span class="fa fa-picture-o"></span> -->
+            <p>Fascinated with designing synthetic products to be lighter and more performant than ever before.</p>
+          </a>
+        </div>
+        <div class="flex2">
+          <a class="a1">
+            <h4>Outdoor Education</h4>
+            <!-- <span class="fa fa-leaf"></span> -->
+            <p>Accomplished outdoorsman, wilderness educator and explorer.</p>
+          </a>
+        </div>
+        <div class="flex3">
+          <a class="a1">
+            <h4>Computer-aided Technologies</h4>
+            <!-- <span class="fa fa-leaf"></span> -->
+            <p>Computer systems such as AutoCAD and SolidWorks help me zero in on optimal solutions.</p>
+          </a>
+        </div>
+        <div class="flex4">
+          <a class="a1">
+            <h4>Web Design & Programming</h4>
+            <!-- <span class="fa fa-leaf"></span> -->
+            <p>Self-taught tinkerer in JavaScript, Python, HTML and CSS.</p>
+          </a>
+        </div>
+      </div><!--end of .row-->
+    </section>
+  </div><!--end of .container-->
+</header>
+
+<!--ABOUT-->
+<section class="about">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h3 id="who_am_i">Who am I?</h3>
+      </div>
+    </div><!--end of .row-->
+    <div class="row bottom">
+      <div class="two-thirds column">
+        <p>Exploring since 1992, I'm an engineer, flyer and mountaineer. I'm looking to join a team of paragliding pioneers who push technological boundaries with a sense of adventure.</p>
+        <p>I've travelled across four continents and earned my National Pilot's Licence in South Africa in 2016. The freedom of flight has stuck with me and I want to work to make that freedom accessible to others.</p>
+        <p>My materials engineering degree provides me with a diverse skillset to help innovate the sport's equipment. I have experience with CFD and CAD software, and a deep knowledge of materials science.</p>
+        <p>Please <span><a onclick="smoothScroll('contactme');return false" href="#contactme">get in touch</a></span> at the bottom of this page; I'm always on the lookout for great opportunities!</p>
+      </div>
+      <div class="one-third column">
+        <h4>Education</h4>
+        <ul>
+          <li>Bachelor in Materials Engineering, industry placement program. McGill University, 2015 - Montreal, Canada.</li>
+          <li>National Outdoor Leadership School (NOLS)</li>
+        </ul>
+        <h4>Languages and Citizenship</h4>
+          <ul>
+            <li><strong>English</strong> (native), <strong>German</strong> (fluent), <strong>French</strong> (fluent), <strong>Spanish</strong> (advanced), <strong>Swedish</strong> (basic)</li>
+            <li>German-Canadian-American triple citizen. Fully entitled to work in Europe and North America.</li>
+          </ul>
+          <a href="./img/Colin Turner - CV.pdf" target="_blank" class="btn">CV</a>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+      <div class="twelve columns">
+        <h4 id="experience" class="center">Experience</h4>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+      <div class="twelve columns">
+        <a href="#" class="btn block">Visit Codepen</a>
+      </div>
+    </div><!--end of .row-->
+  </div><!--end of .container-->
+</section>
+
+<!--CONTACT-->
+<section id="hired" class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h3 id="contactme">Contact</h3>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+      <div class="offset-by-two eight columns">
+        <ul>
+          <li><a href="#" title=""><span class="fa fa-facebook"></span></a></li>
+          <li><a href="#" title=""><span class="fa fa-twitter"></span></a></li>
+          <li><a href="#" title=""><span class="fa fa-dribbble"></span></a></li>
+          <li><a href="#" title=""><span class="fa fa-linkedin"></span></a></li>
+          <li><a href="#" title=""><span class="fa fa-github"></span></a></li>
+        </ul>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+      <div class="twelve columns">
+        <a href="#" class="btn block btn-blue">Mail me</a>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+    </div><!--end of .row-->
+  </div><!--end of .container-->
+
+<!-- FORM TRIAL -->
+
+<form method="POST" action="http://formspree.io/colinturner92@gmail.com">
+  <div><input type="email" name="email" placeholder="Your email"></div>
+  <div><textarea name="message" placeholder="Your message"></textarea></div>
+  <div><button id="send" class="btn block btn-blue" type="submit">Mail Me</button></div>
+</form>
+
+  <!-- FORM TRIAL END -->
+
+</section>
+
+</body>
+</html>
