@@ -344,10 +344,18 @@ nav li:nth-child(2n+1) a:after {
 
 .contact .btn-blue {
   position: relative;
+  width: 330px;
+  height: 200px;
+  margin: 0 auto;
+  display: block;
+  font-size: 1.2em;
+  border-radius: 5px;
+  padding: 12px 30px;
   margin-top: 30px;
   color: white;
   background: steelblue;
   box-shadow: 0 8px #3b6d97;
+  margin: 0px 0px 20px 20px;
 }
 
 .contact .btn-blue:hover {
@@ -357,7 +365,6 @@ nav li:nth-child(2n+1) a:after {
 
 .contact .btn-blue:after {
   position: absolute;
-  content: '☃';
   top: 5px;
   right: 30px;
   font-size: 1.6em;
@@ -459,4 +466,21 @@ nav li:nth-child(2n+1) a:after {
     font-size: 3em;
   }
 
+}
+
+
+/*SOCIAL MEDIA*/
+
+li a.facebook {
+    background: url(./img/facebook.png) no-repeat center;
+    background-size: 100%;
+}
+
+.linkedin {
+    background: url(./img/linkedin.png) no-repeat center;
+    background-size: 80%;
+}
+
+.contactinfo {
+  font-size: 1.5em;
 }
