@@ -278,8 +278,12 @@ nav li:nth-child(2n+1) a:after {
   margin-bottom:18px;
 }
 
-.about h3:after, .contact h3:after {
+.about h3:after {
   border-color: black;
+}
+
+.contact h3:after {
+  border-color: white;
 }
 
 .about .center {
@@ -307,7 +311,8 @@ nav li:nth-child(2n+1) a:after {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .contact {
-  color: black;
+  background: url(./img/Quebec2.jpg) no-repeat fixed center / cover;
+  color: white;
   text-align: center;
 }
 
